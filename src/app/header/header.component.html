@@ -1,0 +1,22 @@
+<nav class="nav-extended light-blue">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a [routerLink]="['/']" class="brand-logo">NCTU SPD Library System</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#">Sign in</a></li>
+        <li><a href="#">Sign up</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="#">Sign in</a></li>
+        <li><a href="#">Sign up</a></li>
+      </ul>
+
+      <ul class="tabs tabs-transparent">
+        <!--<li class="tab"><a class="active" [routerLink]="['user-info']">User Info</a></li>-->
+        <li class="tab"><a [routerLink]="['user-info']">User Info</a></li>
+        <li class="tab"><a [routerLink]="['book-info']">Book Info</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

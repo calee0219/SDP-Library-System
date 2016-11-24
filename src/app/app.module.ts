@@ -3,18 +3,32 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { ArticleComponent } from './article/article.component';
+import { HomepageComponent } from './article/homepage/homepage.component';
+import { UserInfoComponent } from './article/user-info/user-info.component';
+import { BookInfoComponent } from './article/book-info/book-info.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    ArticleComponent,
+    FooterComponent,
+    HomepageComponent,
+    UserInfoComponent,
+    BookInfoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
