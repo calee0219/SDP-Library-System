@@ -12,6 +12,8 @@ import { ArticleComponent } from './article/article.component';
 import { HomepageComponent } from './article/homepage/homepage.component';
 import { UserInfoComponent } from './article/user-info/user-info.component';
 import { BookInfoComponent } from './article/book-info/book-info.component';
+import { SignInComponent } from './article/sign-in/sign-in.component';
+import { SignUpComponent } from './article/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { BookInfoComponent } from './article/book-info/book-info.component';
     FooterComponent,
     HomepageComponent,
     UserInfoComponent,
-    BookInfoComponent
+    BookInfoComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
