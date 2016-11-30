@@ -3,6 +3,8 @@ Final Project for course [SDP](http://people.cs.nctu.edu.tw/~chuang/courses/soft
 
 Project author: [Gavin Lee](https://github.com/), [FuYu Fu](https://github.com/a0919610611)
 
+With [Back End](https://github.com/calee0219/Library) build by [FuYu Fu](https://github.com/a0919610611)
+
 ## Discription
 
 We are trying to developing a Library System, it contants:
@@ -22,6 +24,14 @@ As [Requirement](doc/SDP_Final.odt)
 License: [MIT](LICENSE)
 
 #### Using tools
+
+- [Angular2](https://angular.io/) with [Angular-cli](https://cli.angular.io/) tools.
+
+  License: [MIT](https://github.com/angular/angular-cli/blob/master/LICENSE)
+
+- [Materialize CSS](http://materializecss.com/).
+
+  License: [MIT](https://github.com/dogfalo/materialize/blob/master/LICENSE)
 
 ## How to active
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.

@@ -1,12 +1,13 @@
-<div class="row">
-  <form class="col s12">
+<!--<div class="row">-->
+  <form class="col s12" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="row">
       <div class="input-field col s6">
         <input id="first_name"
                type="text"
                class="validate"
                ngModel
-               name="first_name"/>
+               name="first_name"
+               required/>
         <label for="first_name">First Name</label>
       </div>
       <div class="input-field col s6">
@@ -14,7 +15,8 @@
                type="text"
                class="validate"
                ngModel
-               name="last_name"/>
+               name="last_name"
+               required/>
         <label for="last_name">Last Name</label>
       </div>
     </div>
@@ -24,18 +26,21 @@
                type="text"
                class="validate"
                ngModel
-               name="id_card"/>
+               name="id_card"
+               required/>
         <label for="id_card">ID Card number</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="birth"
+        <input placeholder="2016-02-19"
+               id="birth"
                type="date"
                class="datepicker"
                ngModel
-               name="birth"/>
-        <label for="birth">Birthday</label>
+               name="birth"
+               required/>
+        <label class="active" for="birth">Birthday</label>
       </div>
     </div>
     <div class="row">
@@ -44,7 +49,8 @@
                type="text"
                class="validate"
                ngModel
-               name="address"/>
+               name="address"
+               required/>
         <label for="address">Address</label>
       </div>
     </div>
@@ -54,7 +60,8 @@
                type="email"
                class="validate"
                ngModel
-               name="email"/>
+               name="email"
+               required/>
         <label for="email">Email</label>
       </div>
     </div>
@@ -64,7 +71,8 @@
                type="tel"
                class="validate"
                ngModel
-               name="phone"/>
+               name="phone"
+               required/>
         <label for="phone">Phone number</label>
       </div>
     </div>
@@ -74,7 +82,8 @@
                type="text"
                class="validate"
                ngModel
-               name="account"/>
+               name="account"
+               required/>
         <label for="account">Account</label>
       </div>
     </div>
@@ -84,17 +93,39 @@
                type="password"
                class="validate"
                ngModel
-               name="password"/>
+               name="password"
+               pattern=".{6,}"
+               title="password must more than 6 charactors"
+               required/>
         <label for="password">Password</label>
       </div>
     </div>
-    <div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="re_password"
+               type="password"
+               class="validate"
+               ngModel
+               name="re_password"
+               pattern=".{6,}"
+               title="re-input password must match password"
+               required/>
+        <label for="re_password">Password Again</label>
+      </div>
+    </div>
+    <div class="row">
+      <button id="reset"
+              type="reset"
+              class="btn waves-effect waves-light grey"
+              name="reset">Reset
+      </button>
       <button id="submit"
               type="submit"
-              class="btn waves-effect waves-light"
-              name="action">Submit
-        <i class="material-icons right">submit</i>
+              class="btn waves-effect waves-light light-blue"
+              name="submit"
+              [disabled]="!f.valid">Submit
+        <i class="material-icons right">send</i>
       </button>
     </div>
   </form>
-</div>
+<!--</div>-->

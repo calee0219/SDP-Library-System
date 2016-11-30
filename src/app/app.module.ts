@@ -14,6 +14,10 @@ import { UserInfoComponent } from './article/user-info/user-info.component';
 import { BookInfoComponent } from './article/book-info/book-info.component';
 import { SignInComponent } from './article/sign-in/sign-in.component';
 import { SignUpComponent } from './article/sign-up/sign-up.component';
+import { CheckInComponent } from './article/check-in/check-in.component';
+import { CheckOutComponent } from './article/check-out/check-out.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { VerifyComponent } from './article/sign-up/verify.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { SignUpComponent } from './article/sign-up/sign-up.component';
     UserInfoComponent,
     BookInfoComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    CheckInComponent,
+    CheckOutComponent,
+    SidebarComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,

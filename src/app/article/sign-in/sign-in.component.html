@@ -1,3 +1,30 @@
-<p>
-  sign-in works!
-</p>
+<form class="col s13" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="account"
+             type="text"
+             class="validate"
+             ngModel
+             name="account"
+             required/>
+      <label for="account">Account</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="password"
+             type="password"
+             class="validate"
+             ngModel
+             name="password"
+             required/>
+      <label for="password">Password</label>
+    </div>
+  </div>
+  <button id="submit"
+          type="submit"
+          class="btn waves-effect waves-light light-blue"
+          name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+</form>

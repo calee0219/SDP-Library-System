@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
       <router-outlet></router-outlet>
     </article>
   `,
-  styles: []
+  styles: [`
+    article {
+      margin-top: 30px;
+    }
+  `]
 })
 export class ArticleComponent implements OnInit {
 
