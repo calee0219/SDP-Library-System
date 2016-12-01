@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterializeModule } from 'angular2-materialize';
 
@@ -18,6 +18,7 @@ import { CheckInComponent } from './article/check-in/check-in.component';
 import { CheckOutComponent } from './article/check-out/check-out.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
+import { HttpService } from './http/http.service';
 
 @NgModule({
   declarations: [
@@ -39,10 +40,13 @@ import { VerifyComponent } from './article/sign-up/verify.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     AppRoutingModule,
     MaterializeModule
   ],
-  providers: [],
+  providers: [
+    HttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
