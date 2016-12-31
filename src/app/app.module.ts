@@ -16,9 +16,10 @@ import { SignInComponent } from './article/sign-in/sign-in.component';
 import { SignUpComponent } from './article/sign-up/sign-up.component';
 import { CheckInComponent } from './article/check-in/check-in.component';
 import { CheckOutComponent } from './article/check-out/check-out.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
-import { HttpService } from './http/http.service';
+
+import { HttpService } from './service/http.service';
+import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,6 @@ import { HttpService } from './http/http.service';
     SignUpComponent,
     CheckInComponent,
     CheckOutComponent,
-    SidebarComponent,
     VerifyComponent
   ],
   imports: [
@@ -45,7 +45,8 @@ import { HttpService } from './http/http.service';
     MaterializeModule
   ],
   providers: [
-    HttpService
+    HttpService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

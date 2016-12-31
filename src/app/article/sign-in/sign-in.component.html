@@ -1,4 +1,6 @@
-<form class="col s13" (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form class="col s12"
+      (ngSubmit)="onSubmit(uName.value,pw.value)"
+      #ing="ngForm">
   <div class="row">
     <div class="input-field col s12">
       <input id="account"
@@ -6,7 +8,8 @@
              class="validate"
              ngModel
              name="account"
-             required/>
+             required
+             #uName/>
       <label for="account">Account</label>
     </div>
   </div>
@@ -17,14 +20,19 @@
              class="validate"
              ngModel
              name="password"
-             required/>
+             pattern=".{6,}"
+             required
+             #pw/>
       <label for="password">Password</label>
     </div>
   </div>
   <button id="submit"
           type="submit"
           class="btn waves-effect waves-light light-blue"
-          name="action">Submit
+          name="action"
+          [disabled]="!ing.valid">Submit
     <i class="material-icons right">send</i>
   </button>
+  <div id="errorMSG">{{ error }}</div>
 </form>
+<h1>{{items}}</h1>

@@ -1,5 +1,5 @@
-<!--<div class="row">-->
-  <form class="col s12"
+<div class="row">
+  <form class="col s8 offset-s2 m6 offset-m3 l6 offset-l3"
         (ngSubmit)="onSubmit(fName.value,lName.value,id.value,birth.value,address.value,email.value,phone.value,account.value,passwd.value)"
         #up="ngForm">
     <div class="row">
@@ -12,6 +12,7 @@
                required
                #fName/>
         <label for="first_name">First Name</label>
+        <div class="error" *ngIf="error">{{ error.first_name }}</div>
       </div>
       <div class="input-field col s6">
         <input id="last_name"
@@ -22,6 +23,7 @@
                required
                #lName/>
         <label for="last_name">Last Name</label>
+        <div class="error" *ngIf="error">{{ error.last_name }}</div>
       </div>
     </div>
     <div class="row">
@@ -34,6 +36,7 @@
                required
                #id/>
         <label for="id_card">ID Card number</label>
+        <div class="error" *ngIf="error">{{ error.student_id }}</div>
       </div>
     </div>
     <div class="row">
@@ -47,6 +50,7 @@
                required
                #birth/>
         <label class="active" for="birth">Birthday</label>
+        <div class="error" *ngIf="error">{{ error.birthday }}</div>
       </div>
     </div>
     <div class="row">
@@ -59,6 +63,7 @@
                required
                #address/>
         <label for="address">Address</label>
+        <div class="error" *ngIf="error">{{ error.address }}</div>
       </div>
     </div>
     <div class="row">
@@ -71,6 +76,7 @@
                required
                #email/>
         <label for="email">Email</label>
+        <div class="error" *ngIf="error">{{ error.email }}</div>
       </div>
     </div>
     <div class="row">
@@ -83,6 +89,7 @@
                required
                #phone/>
         <label for="phone">Phone number</label>
+        <div class="error" *ngIf="error">{{ error.phone_number }}</div>
       </div>
     </div>
     <div class="row">
@@ -95,6 +102,7 @@
                required
                #account/>
         <label for="account">Account</label>
+        <div class="error" *ngIf="error">{{ error.username }}</div>
       </div>
     </div>
     <div class="row">
@@ -109,6 +117,7 @@
                required
                #passwd/>
         <label for="password">Password</label>
+        <div class="error" *ngIf="error">{{ error.password }}</div>
       </div>
     </div>
     <div class="row">
@@ -120,8 +129,9 @@
                name="re_password"
                pattern=".{6,}"
                title="re-input password must match password"
-               required/>
-        <label for="re_password">Password Again</label>
+               required
+               #confirmPassword/>
+        <label for="re_password">Confirm Password</label>
       </div>
     </div>
     <div class="row">
@@ -139,4 +149,4 @@
       </button>
     </div>
   </form>
-<!--</div>-->
+</div>

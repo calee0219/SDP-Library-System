@@ -1,23 +1,47 @@
+<div class="row">
+  <form class="col s12"
+        (ngSubmit)="onSubmit(bookId.value)">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="bookId"
+               type="text"
+               class="validate"
+               ngModel
+               name="bookId"
+               #bookId/>
+        <label for="bookId">Book ID</label>
+        <div class="error" *ngIf="error">{{ error.detail }}</div>
+      </div>
+      <br/>
+      <button id="find"
+              type="submit"
+              class="btn waves-effect waves-light light-blue"
+              name="action">Find
+        <i class="material-icons left">search</i>
+      </button>
+    </div>
+  </form>
+</div>
 <table class="highlight">
   <tbody>
     <tr>
       <td>Book Name</td>
-      <td>It's Django!</td>
+      <td>{{ bookInfo.title }}</td>
     </tr>
     <tr>
       <td>ISBN</td>
-      <td>140-113-69-46</td>
+      <td>{{ bookInfo.ISBN }}</td>
     <tr>
       <td>Author</td>
-      <td>Gavin Not Lee</td>
+      <td>{{ bookInfo.author }}</td>
     </tr>
     <tr>
       <td>Publisher</td>
-      <td>NCTU Public</td>
+      <td>{{ bookInfo.publisher }}</td>
     </tr>
     <tr>
       <td>Bar Code</td>
-      <td>X594085</td>
+      <td>{{ bookInfo.barcode }}</td>
     </tr>
     <tr>
       <td>Call Number</td>

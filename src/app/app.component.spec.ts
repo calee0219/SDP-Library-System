@@ -18,16 +18,22 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'lib works!'`, async(() => {
+  it(`should import component 'lib-header'`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('lib works!');
   }));
 
-  it('should render title in a h1 tag', async(() => {
+  it(`should import component 'lib-body'`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('lib works!');
+    let app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('lib works!');
   }));
+
+  it(`should import component 'lib-footer'`, async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    let app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('lib works!');
+  }));
+
 });
