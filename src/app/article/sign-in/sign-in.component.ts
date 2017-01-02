@@ -22,8 +22,8 @@ export class SignInComponent implements OnInit, DoCheck {
   onSubmit(uName: string, pw: string) {
     this.userService.login(uName, pw).then(data => {
       this.error = data;
-      console.log(data);
-      if(data == true) { this.router.navigate(['/user-info']); }
+      console.log('Data',data);
+      if(data == true) { this.router.navigate(['/check-out']); }
     });
   }
 

@@ -1,33 +1,57 @@
-<p><span>User: </span><span>calee0219</span></p>
-<table>
+<p><span>User: </span><span>{{ me }}</span></p>
+<div class="row" *ngIf="myInfo.is_staff">
+  <form class="col s12"
+        (ngSubmit)="onSubmit(userId.value)">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="userId"
+               type="text"
+               class="validate"
+               ngModel
+               name="userId"
+               #userId/>
+        <label for="userId">User Account</label>
+        <div class="error" *ngIf="error">{{ error.detail }}</div>
+      </div>
+      <br/>
+      <button id="find"
+              type="submit"
+              class="btn waves-effect waves-light light-blue"
+              name="action">Find
+        <i class="material-icons left">search</i>
+      </button>
+    </div>
+  </form>
+</div>
+<table class="highlight">
   <tbody>
     <tr>
       <td>User Name</td>
-      <td>Gavin Lee</td>
+      <td>{{ userInfo.first_name}} {{ userInfo.last_name }}</td>
+    </tr>
+    <tr>
+      <td>User Account</td>
+      <td>{{ userInfo.username }}</td>
     </tr>
     <tr>
       <td>User ID</td>
-      <td>0416037</td>
+      <td>{{ userInfo.student_id }}</td>
     </tr>
     <tr>
       <td>Birthday</td>
-      <td>1997-02-19</td>
+      <td>{{ userInfo.birthday }}</td>
     </tr>
     <tr>
       <td>Address</td>
-      <td>No. 4, Alli 2, St. FuHai, ZonLi City, Touyan, Taiwan</td>
+      <td>{{ userInfo.address }}</td>
     </tr>
     <tr>
       <td>Phone</td>
-      <td>0987-616-155</td>
+      <td>{{ userInfo.phone_number }}</td>
     </tr>
     <tr>
       <td>Email</td>
-      <td>sz110010@gmail.com</td>
-    </tr>
-    <tr>
-      <td>Price Recard</td>
-      <td></td>
+      <td>{{ userInfo.email }}</td>
     </tr>
   </tbody>
 </table>

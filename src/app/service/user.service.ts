@@ -27,6 +27,7 @@ export class UserService {
         localStorage.setItem('token', myarr[0]);
         this.loggedIn = true;
         console.log(myarr[0]);
+        return Promise.resolve(this.loggedIn);
       },
       (error: Response) => {
         this.error.pop();
@@ -36,8 +37,8 @@ export class UserService {
         console.log(this.error);
       }
     );
-    console.log(this.loggedIn);
-    console.log(localStorage.getItem('token'));
+    console.log('service login',this.loggedIn);
+    console.log('service token',localStorage.getItem('token'));
     if(this.loggedIn) return Promise.resolve(this.loggedIn);
     else return Promise.resolve(this.error[0]);
   }

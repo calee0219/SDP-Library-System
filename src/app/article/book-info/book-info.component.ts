@@ -14,21 +14,32 @@ import { HttpService } from '../../service/http.service';
     div.row {
       margin-bottom: 0;
     }
+    p {
+      margin: 0 auto;
+    }
   `]
 })
 export class BookInfoComponent implements OnInit {
   error: any = "";
   bookInfo: any = "";
+  barCode: any = "";
 
   constructor(private httpService: HttpService) { }
 
-  onSubmit(bookId: string) {
+  onSubmit(barCode: string) {
     this.bookInfo = "";
     this.error = "";
-    this.httpService.bookInfoGet(bookId).subscribe(
-      (data: Response) => { this.bookInfo = data; },
+    this.httpService.getBookId(barCode).subscribe(
+      (data: Response) => {
+        this.barCode = data;
+        this.httpService.bookInfoGet(this.barCode.book).subscribe(
+          (data: Response) => { this.bookInfo = data; },
+          (error: Response) => { this.error = error; }
+        );
+      },
       (error: Response) => { this.error = error; }
     );
+
   }
 
   ngOnInit() {

@@ -1,1 +1,61 @@
-<p><span>User: </span><span>calee0219</span></p>
+<p><span>User: </span><span>{{me}}</span></p>
+<div class="row">
+  <form class="col s12"
+        (ngSubmit)="onSubmit(bookId.value)">
+    <div class="row">
+      <div class="input-field col s6" *ngIf="me && myInfo.is_staff">
+        <input id="userId"
+               type="text"
+               class="validate"
+               ngModel
+               name="userId"
+               #userId/>
+        <label for="userId">User Account</label>
+        <div class="error" *ngIf="error">{{error.username}}</div>
+      </div>
+      <div class="input-field col s6">
+        <input id="bookId"
+               type="text"
+               class="validate"
+               ngModel
+               name="bookId"
+               #bookId/>
+        <label for="bookId">Book Bar Code</label>
+        <div class="error" *ngIf="error">{{error.bar_code[0]}}</div>
+        <div class="error" *ngIf="error">{{error.error}}</div>
+      </div>
+    </div>
+    <div>
+      <button id="find"
+              type="submit"
+              class="btn waves-effect waves-light light-blue"
+              name="action">borrow
+        <i class="material-icons">exit_to_app</i>
+      </button>
+    </div>
+  </form>
+</div>
+<div *ngIf="borrowInfo">
+  <table>
+    <tr>
+      <td>Borrower</td>
+      <td>{{ borrowInfo.username }}</td>
+    </tr>
+    <tr>
+      <td>Book Name</td>
+      <td>lalalalala</td>
+    </tr>
+    <tr>
+      <td>Bar Code</td>
+      <td>{{ borrowInfo.bar_code }}</td>
+    </tr>
+    <tr>
+      <td>Borrow time</td>
+      <td>{{ borrowInfo.borrowed_time }}</td>
+    </tr>
+    <tr>
+      <td>Due time</td>
+      <td>{{ borrowInfo.due_time }}</td>
+    </tr>
+  </table>
+</div>

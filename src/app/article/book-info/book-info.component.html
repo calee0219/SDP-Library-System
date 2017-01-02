@@ -9,7 +9,7 @@
                ngModel
                name="bookId"
                #bookId/>
-        <label for="bookId">Book ID</label>
+        <label for="bookId">Book Bar Code</label>
         <div class="error" *ngIf="error">{{ error.detail }}</div>
       </div>
       <br/>
@@ -41,27 +41,18 @@
     </tr>
     <tr>
       <td>Bar Code</td>
-      <td>{{ bookInfo.barcode }}</td>
+      <td>{{ barCode.bar_code }}</td>
     </tr>
     <tr>
       <td>Call Number</td>
       <td>450-520-113-22</td>
     </tr>
     <tr>
-      <td>Language</td>
-      <td>Chinese</td>
-    </tr>
-    <tr>
-      <td>Catergory</td>
-      <td>Web Design</td>
-    </tr>
-    <tr>
-      <td>Main Topic</td>
-      <td>Python,Web,Back End, Reference, Tech.</td>
-    </tr>
-    <tr>
-      <td>Remark</td>
-      <td></td>
+      <td>Status</td>
+      <td *ngIf="barCode">
+        <p *ngIf="barCode.is_borrowed">Occupied</p>
+        <p *ngIf="!barCode.is_borrowed">Vacant</p>
+      </td>
     </tr>
   </tbody>
 </table>

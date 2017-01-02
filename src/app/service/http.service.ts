@@ -16,7 +16,7 @@ export class HttpService {
     headers.append('Content-Type', 'application/json');
     return this.http.post(this.httpURL+'api/users/', body, { headers: headers })
       .map((data: Response) => data.json())
-      .catch(this.handleError);
+      .catch(HttpService.handleError);
   }
 
   loginPost(user: any) {
@@ -25,7 +25,7 @@ export class HttpService {
     headers.append('Content-Type', 'application/json');
     return this.http.post(this.httpURL+'api/users/login/', body, { headers: headers })
       .map((data: Response) => data.json())
-      .catch(this.handleError);
+      .catch(HttpService.handleError);
   }
 
   bookInfoGet(id: any) {
@@ -33,23 +33,57 @@ export class HttpService {
     headers.append('Content-Type', 'application/json');
     return this.http.get(this.httpURL+'api/books/'+id+'/', { headers: headers })
       .map((data: Response) => data.json())
-      .catch(this.handleError);
+      .catch(HttpService.handleError);
   }
 
   userDetail(user: any) {
     const token: string = localStorage.getItem('token');
-    console.log('token',token);
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'JWT '+ token);
-    console.log(headers);
-    console.log('all',this.httpURL+'api/users/calee0219/',{ headers: headers });
-    return this.http.get(this.httpURL+'api/users/calee0219/',{ headers: headers })
+    return this.http.get(this.httpURL+'api/users/'+user+'/',{ headers: headers })
       .map((data: Response) => data.json())
-      .catch(this.handleError);
+      .catch(HttpService.handleError);
   }
 
-  private handleError (error: any) {
-    return Observable.throw(error.json());
+  borrow(info: any) {
+    const body = JSON.stringify(info);
+    const token: string = localStorage.getItem('token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT '+ token);
+    return this.http.post(this.httpURL+'api/borrowinfos/', body, { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  getBookId(barCode: any) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(this.httpURL+'api/barcodes/'+barCode+'/', { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  getBorrowId(barCode: any) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(this.httpURL+'api/borrowinfos/?barcode='+barCode, { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  returnBook(bookId: any) {
+    const token: string = localStorage.getItem('token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT '+ token);
+    return this.http.delete(this.httpURL+'api/borrowinfos/'+bookId+'/', { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  private static handleError (error: Response) {
+    return Observable.throw(error.json().error || 'Server error');
   }
 }

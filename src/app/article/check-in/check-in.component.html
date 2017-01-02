@@ -1,8 +1,53 @@
-<form>
+<form class="col s12"
+      (ngSubmit)="onSubmit(barCode.value)">
   <div class="row">
-    <div class="input-field col s12">
-      <input id="bookID" type="text" class="validate"/>
-      <label for="bookID">Book</label>
+    <div class="input-field col s6">
+      <input id="barCode"
+             type="text"
+             class="validate"
+             ngModel
+             name="bookId"
+             #barCode/>
+      <label for="barCode">Book Bar Code</label>
+      <div class="error" *ngIf="error">{{error}}</div>
+    </div>
+    <br/>
+    <div>
+      <button id="find"
+              type="submit"
+              class="btn waves-effect waves-light light-blue"
+              name="action">return
+        <i class="material-icons right">assignment_returned</i>
+      </button>
     </div>
   </div>
 </form>
+<table class="highlight" *ngIf="returnSuccess">
+  <thead>Returned:</thead>
+  <tbody>
+    <tr>
+      <td>Borrower</td>
+      <td>{{ returnSuccess.username }}</td>
+    </tr>
+    <tr>
+      <td>Book Name</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Bar Code</td>
+      <td>{{ returnSuccess.bar_code }}</td>
+    </tr>
+    <tr>
+      <td>Borrow time</td>
+      <td>{{ returnSuccess.borrowed_time }}</td>
+    </tr>
+    <tr>
+      <td>Due time</td>
+      <td>{{ returnSuccess.due_time}}</td>
+    </tr>
+    <tr>
+      <td>Return time</td>
+      <td>{{ today }}</td>
+    </tr>
+  </tbody>
+</table>
