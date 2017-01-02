@@ -1,7 +1,8 @@
-import {Component, OnInit, DoCheck} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { Response } from "@angular/http";
 
-import { UserService } from "../../service/user.service";
+import { HttpService } from "../../service/http.service";
 
 @Component({
   selector: 'lib-sign-in',
@@ -14,23 +15,33 @@ import { UserService } from "../../service/user.service";
     }
   `]
 })
-export class SignInComponent implements OnInit, DoCheck {
-  error: string ="";
+export class SignInComponent implements OnInit {
+  error: any ="";
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private httpService: HttpService, private router: Router) { }
 
   onSubmit(uName: string, pw: string) {
-    this.userService.login(uName, pw).then(data => {
-      this.error = data;
-      console.log('Data',data);
-      if(data == true) { this.router.navigate(['/check-out']); }
-    });
+    this.httpService.loginPost({
+      username: uName,
+      password: pw
+    }).subscribe(
+      (data: Response) => {
+        localStorage.setItem('me',uName);
+        this.error = "";
+        const myarr = [];
+        for(let key in data) {
+          myarr.push(data[key]);
+        }
+        localStorage.setItem('token', myarr[0]);
+        this.router.navigate(['/check-out']);
+      },
+      (error: Response) => {
+        this.error = error[0];
+        console.log(this.error);
+      }
+    );
   }
 
   ngOnInit() { }
-
-  ngDoCheck() {
-    console.log(this.error);
-  }
 
 }

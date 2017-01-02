@@ -30,13 +30,14 @@
               type="submit"
               class="btn waves-effect waves-light light-blue"
               name="action">borrow
-        <i class="material-icons">exit_to_app</i>
+        <i class="material-icons right">exit_to_app</i>
       </button>
     </div>
   </form>
 </div>
 <div *ngIf="borrowInfo">
   <table>
+    <thead>Land out</thead>
     <tr>
       <td>Borrower</td>
       <td>{{ borrowInfo.username }}</td>

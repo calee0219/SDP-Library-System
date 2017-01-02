@@ -19,7 +19,6 @@ import { CheckOutComponent } from './article/check-out/check-out.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
 
 import { HttpService } from './service/http.service';
-import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -44,10 +43,7 @@ import { UserService } from './service/user.service';
     AppRoutingModule,
     MaterializeModule
   ],
-  providers: [
-    HttpService,
-    UserService
-  ],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
