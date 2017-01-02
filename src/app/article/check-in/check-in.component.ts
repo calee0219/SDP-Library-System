@@ -14,16 +14,17 @@ import { HttpService } from "../../service/http.service";
 })
 export class CheckInComponent implements OnInit {
   error: any = "";
-  now: any = new Date();
+  now: Date = new Date();
   today: any = "";
   borrowInfo: any = "";
   returnSuccess: any = "";
+  bookName: any = "";
 
   constructor(private httpService: HttpService) { }
 
   onSubmit(barCode: any) {
     this.today = this.now.getFullYear()+'-'+('0'+(this.now.getMonth()+1)).slice(-2)+'-'+('0'+this.now.getDate()).slice(-2);
-    //this.today = this.now.toString();
+    this.bookName = "";
     this.error = "";
     this.returnSuccess = "";
     this.httpService.getBorrowId(barCode)
@@ -36,10 +37,9 @@ export class CheckInComponent implements OnInit {
                 ((data: Response) => {
                   this.returnSuccess = this.borrowInfo[0];
                   console.log(this.returnSuccess.due_time);
-                  var tmpDue = new Date(this.returnSuccess.due_time);
+                  const tmpDue = new Date(this.returnSuccess.due_time);
                   if(tmpDue < this.now) {
-                    console.log('hi');
-                    window.alert("You have postpone this book for "+(this.now.getDate() - tmpDue.getDate())+" days");
+                    window.alert("You have postpone this book for "+((this.now.getTime() - tmpDue.getTime())/86400000)+" days");
                   }
                 }),
                 ((error: Response) => this.error = error)
@@ -50,6 +50,15 @@ export class CheckInComponent implements OnInit {
         }),
         ((error: Response) => this.error = error)
       );
+    this.httpService.getBookId(barCode).subscribe(
+      ((data: Response) => {
+        const bookId: any = data;
+        this.httpService.bookInfoGet(bookId.book).subscribe(
+          ((data: Response) => this.bookName = data)
+        );
+      }),
+      ((error: Response) => this.error = error)
+    );
   }
 
   ngOnInit() {

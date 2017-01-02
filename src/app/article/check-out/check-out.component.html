@@ -11,7 +11,7 @@
                name="userId"
                #userId/>
         <label for="userId">User Account</label>
-        <div class="error" *ngIf="error">{{error.username}}</div>
+        <div class="error" *ngIf="userError">{{ userError.username }}</div>
       </div>
       <div class="input-field col s6">
         <input id="bookId"
@@ -21,8 +21,8 @@
                name="bookId"
                #bookId/>
         <label for="bookId">Book Bar Code</label>
-        <div class="error" *ngIf="error">{{error.bar_code[0]}}</div>
-        <div class="error" *ngIf="error">{{error.error}}</div>
+        <div class="error" *ngIf="bookError">{{ bookError.bar_code[0] }}</div>
+        <div class="error" *ngIf="bookError">{{ bookError.error }}</div>
       </div>
     </div>
     <div>
@@ -44,7 +44,7 @@
     </tr>
     <tr>
       <td>Book Name</td>
-      <td>lalalalala</td>
+      <td>{{ bookName.title }}</td>
     </tr>
     <tr>
       <td>Bar Code</td>

@@ -17,13 +17,16 @@ export class CheckOutComponent implements OnInit, DoCheck {
   myInfo: any = "";
   userInfo: any = "";
   borrowInfo: any = "";
-  error: any = "";
+  bookName: any = "";
+  userError: any = "";
+  bookError: any = "";
 
   constructor(private httpService: HttpService) { }
 
   onSubmit(barCode: string, user: string = localStorage.getItem('me')) {
     this.borrowInfo = "";
-    this.error = "";
+    this.bookError = "";
+    this.bookName = "";
     const today = new Date();
     const dueDay = (today.getMonth() == 11) ? new Date(today.getFullYear() + 1, 0, 1) : new Date(today.getFullYear(), today.getMonth() + 1, 1);
     this.httpService.borrow({
@@ -32,21 +35,25 @@ export class CheckOutComponent implements OnInit, DoCheck {
       borrowed_time: today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
       due_time: dueDay.getFullYear()+'-'+(dueDay.getMonth()+1)+'-'+dueDay.getDate()
     }).subscribe(
-      ((data: Response) => { this.borrowInfo = data; console.log(data, this.borrowInfo) }),
-      ((error: Response) => {
-        this.error = error;
-        console.log('ERROR',this.error);
-      })
+      ((data: Response) => this.borrowInfo = data),
+      ((error: Response) => this.bookError = error)
     );
-    console.log(this.error);
-    console.log(this.borrowInfo);
+    this.httpService.getBookId(barCode).subscribe(
+      ((data: Response) => {
+        const bookId: any = data;
+        this.httpService.bookInfoGet(bookId.book).subscribe(
+          ((data: Response) => this.bookName = data)
+        );
+      }),
+      ((error: Response) => this.bookError = error)
+    ); console.log(this.bookError);
   }
 
   ngOnInit() {
     this.httpService.userDetail(localStorage.getItem('me'))
       .subscribe(
         (data: Response) => { this.myInfo = data; },
-        (error: Response) => { this.error = error; }
+        (error: Response) => { this.userError = error; }
       );
     this.userInfo = this.myInfo;
   }
