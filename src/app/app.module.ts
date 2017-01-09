@@ -19,6 +19,7 @@ import { CheckOutComponent } from './article/check-out/check-out.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
 
 import { HttpService } from './service/http.service';
+import { AddBooksComponent } from './article/add-books/add-books.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HttpService } from './service/http.service';
     SignUpComponent,
     CheckInComponent,
     CheckOutComponent,
-    VerifyComponent
+    VerifyComponent,
+    AddBooksComponent
   ],
   imports: [
     BrowserModule,

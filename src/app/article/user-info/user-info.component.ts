@@ -36,7 +36,7 @@ export class UserInfoComponent implements OnInit, DoCheck {
     this.me = localStorage.getItem('me');
     this.httpService.userDetail(localStorage.getItem('me'))
       .subscribe(
-        (data: Response) => { this.myInfo = data; this.userInfo = data; },
+        (data: Response) => { this.myInfo = data; this.userInfo = data; localStorage.setItem('userInfo',JSON.stringify(data)); localStorage.setItem('isStaff',this.userInfo.is_staff); },
         (error: Response) => { this.error = error; }
       );
   }
