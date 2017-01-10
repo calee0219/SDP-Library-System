@@ -17,9 +17,9 @@ import { SignUpComponent } from './article/sign-up/sign-up.component';
 import { CheckInComponent } from './article/check-in/check-in.component';
 import { CheckOutComponent } from './article/check-out/check-out.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
+import { BooksVEADComponent } from './article/books-vead/books-vead.component';
 
 import { HttpService } from './service/http.service';
-import { AddBooksComponent } from './article/add-books/add-books.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { AddBooksComponent } from './article/add-books/add-books.component';
     CheckInComponent,
     CheckOutComponent,
     VerifyComponent,
-    AddBooksComponent
+    BooksVEADComponent
   ],
   imports: [
     BrowserModule,

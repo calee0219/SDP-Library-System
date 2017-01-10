@@ -9,7 +9,7 @@ import { CheckInComponent } from './article/check-in/check-in.component';
 import { BookInfoComponent } from './article/book-info/book-info.component';
 import { UserInfoComponent } from './article/user-info/user-info.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
-import { AddBooksComponent } from './article/add-books/add-books.component';
+import { BooksVEADComponent } from './article/books-vead/books-vead.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'book-info', component: BookInfoComponent },
   { path: 'user-info', component: UserInfoComponent },
   { path: 'verify', component: VerifyComponent },
-  { path: 'add-book', component: AddBooksComponent }
+  { path: 'book-vead', component: BooksVEADComponent }
 ];
 
 @NgModule({

@@ -18,8 +18,8 @@
       "prefix": "lib",
       "mobile": false,
       "styles": [
-        "../node_modules/materialize-css/dist/css/materialize.min.css",
-        "styles.sass"
+        "styles.sass",
+        "../node_modules/materialize-css/dist/css/materialize.min.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
