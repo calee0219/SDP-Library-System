@@ -115,6 +115,17 @@ export class HttpService {
       .catch(HttpService.handleError);
   }
 
+  patchBookInfo(bookId: any, bookInfo: any) {
+    const body = JSON.stringify(bookInfo);
+    const headers = new Headers();
+    const token: string = localStorage.getItem('token');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Jwt ' + token);
+    return this.http.patch(this.httpURL+'api/books/'+bookId+'/', body, { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
   private static handleError (error: Response) {
     return Observable.throw(error.json().error || 'Server error');
   }

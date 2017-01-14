@@ -47,7 +47,7 @@
     <td>{{ book.publisher }}</td>
     <td>{{ book.call_number }}</td>
     <td class="right-align">
-      <a class="btn waves-effect green">Edit</a>
+      <a class="btn waves-effect green" [routerLink]="['/book-crud/edit/'+book.id]">Edit</a>
       <a class="btn waves-effect waves-light red darken-1" (click)="delete(book.id)">Delete</a>
     </td>
   </tr>

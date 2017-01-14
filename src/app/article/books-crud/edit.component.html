@@ -1,3 +1,93 @@
-<p>
-  edit works!
-</p>
+<div *ngIf="bookInfo">
+  <div class="row">
+    <h3 class="col s8 offset-s2 m6 offset-m3 l6 offset-l3">Editing {{bookInfo.title}}</h3>
+    <form class="col s8 offset-s2 m6 offset-m3 l6 offset-l3"
+          (ngSubmit)="onSubmit(title.value,isbn.value,author.value,publisher.value,cNumber.value)"
+          #up="ngForm">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="title"
+                 type="text"
+                 class="validate"
+                 ngModel
+                 name="title"
+                 [(ngModel)]="bookInfo.title"
+                 required
+                 #title/>
+          <label for="title" class="active">Book Name</label>
+          <div class="error" *ngIf="error">{{ error.title }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="isbn"
+                 type="number"
+                 class="datepicker"
+                 ngModel
+                 name="isbn"
+                 [(ngModel)]="bookInfo.ISBN"
+                 required
+                 #isbn/>
+          <label for="isbn" class="active">ISBN</label>
+          <div class="error" *ngIf="error">{{ error.ISBN }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="author"
+                 type="text"
+                 class="validate"
+                 ngModel
+                 name="author"
+                 [(ngModel)]="bookInfo.author"
+                 #author/>
+          <label for="author" class="active">Author</label>
+          <div class="error" *ngIf="error">{{ error.author }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="publisher"
+                 type="text"
+                 class="validate"
+                 ngModel
+                 name="publisher"
+                 [(ngModel)]="bookInfo.publisher"
+                 #publisher/>
+          <label for="publisher" class="active">Publisher</label>
+          <div class="error" *ngIf="error">{{ error.publisher }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="cNumber"
+                 type="number"
+                 class="validate"
+                 ngModel
+                 name="cNumber"
+                 [(ngModel)]="bookInfo.call_number"
+                 required
+                 #cNumber/>
+          <label for="cNumber" class="active">Call Number</label>
+          <div class="error" *ngIf="error">{{ error.call_number }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <button id="reset"
+                type="button"
+                class="btn waves-effect waves-light grey"
+                (click)="abort()"
+                name="abort">Abort
+        </button>
+        <button id="submit"
+                type="submit"
+                class="btn waves-effect waves-light green"
+                name="submit"
+                [disabled]="!up.valid">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>

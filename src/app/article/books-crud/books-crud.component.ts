@@ -32,7 +32,7 @@ export class BooksCRUDComponent implements OnInit {
 
   addBook() {
     console.log("adding book");
-    this.router.navigate(['/add-book']);
+    this.router.navigate(['/book-crud/add-book']);
   }
 
   ngOnInit() {
