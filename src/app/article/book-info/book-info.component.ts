@@ -39,7 +39,6 @@ export class BookInfoComponent implements OnInit {
       },
       (error: Response) => { this.error = error; }
     );
-
   }
 
   ngOnInit() {

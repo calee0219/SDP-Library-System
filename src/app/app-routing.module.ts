@@ -9,7 +9,8 @@ import { CheckInComponent } from './article/check-in/check-in.component';
 import { BookInfoComponent } from './article/book-info/book-info.component';
 import { UserInfoComponent } from './article/user-info/user-info.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
-import { BooksVEADComponent } from './article/books-vead/books-vead.component';
+import { BooksCRUDComponent } from './article/books-crud/books-crud.component';
+import { AddBookComponent } from './article/books-crud/add-book.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'book-info', component: BookInfoComponent },
   { path: 'user-info', component: UserInfoComponent },
   { path: 'verify', component: VerifyComponent },
-  { path: 'book-vead', component: BooksVEADComponent }
+  { path: 'book-crud', component: BooksCRUDComponent },
+  { path: 'add-book', component: AddBookComponent }
 ];
 
 @NgModule({

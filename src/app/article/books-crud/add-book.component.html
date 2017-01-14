@@ -1,0 +1,85 @@
+<div class="row">
+  <form class="col s8 offset-s2 m6 offset-m3 l6 offset-l3"
+        (ngSubmit)="onSubmit(title.value,isbn.value,author.value,publishor.value,cNumber.value)"
+        #up="ngForm">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="title"
+               type="text"
+               class="validate"
+               ngModel
+               name="title"
+               required
+               #title/>
+        <label for="title">Book Name</label>
+        <div class="error" *ngIf="error">{{ error.title }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="isbn"
+               type="number"
+               class="datepicker"
+               ngModel
+               name="isbn"
+               required
+               #isbn/>
+        <label class="active" for="isbn">ISBN</label>
+        <div class="error" *ngIf="error">{{ error.ISBN }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="author"
+               type="text"
+               class="validate"
+               ngModel
+               name="author"
+               required
+               #author/>
+        <label for="author">Author</label>
+        <div class="error" *ngIf="error">{{ error.author }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="publishor"
+               type="text"
+               class="validate"
+               ngModel
+               name="publishor"
+               required
+               #publishor/>
+        <label for="publishor">Publishor</label>
+        <div class="error" *ngIf="error">{{ error.publishor }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="cNumber"
+               type="number"
+               class="validate"
+               ngModel
+               name="cNumber"
+               required
+               #cNumber/>
+        <label for="cNumber">Call Number</label>
+        <div class="error" *ngIf="error">{{ error.call_number }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <button id="reset"
+              type="reset"
+              class="btn waves-effect waves-light grey"
+              name="reset">Reset
+      </button>
+      <button id="submit"
+              type="submit"
+              class="btn waves-effect waves-light green"
+              name="submit"
+              [disabled]="!up.valid">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>

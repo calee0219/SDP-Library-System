@@ -22,33 +22,26 @@
     </div>
   </form>
 </div>
-<table class="striped">
+<table class="responsive-table stripped">
+  <thead>
+  <tr>
+    <td>Book Name</td>
+    <td>ISBN</td>
+    <td>Author</td>
+    <td>Publisher</td>
+    <td>Bar Code</td>
+    <td>Call Number</td>
+    <td>Status</td>
+  </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Book Name</td>
       <td>{{ bookInfo.title }}</td>
-    </tr>
-    <tr>
-      <td>ISBN</td>
       <td>{{ bookInfo.ISBN }}</td>
-    <tr>
-      <td>Author</td>
       <td>{{ bookInfo.author }}</td>
-    </tr>
-    <tr>
-      <td>Publisher</td>
       <td>{{ bookInfo.publisher }}</td>
-    </tr>
-    <tr>
-      <td>Bar Code</td>
       <td>{{ barCode.bar_code }}</td>
-    </tr>
-    <tr>
-      <td>Call Number</td>
       <td>{{ bookInfo.call_number }}</td>
-    </tr>
-    <tr>
-      <td>Status</td>
       <td *ngIf="barCode">
         <p *ngIf="barCode.is_borrowed">Occupied</p>
         <p *ngIf="!barCode.is_borrowed">Vacant</p>

@@ -22,7 +22,7 @@
   </form>
   <form class="col s4 right-align">
     <div class="input-field inline valign-wrapper">
-      <a class="btn-small waves-effect waves-light valign">Add new books +</a>
+      <a class="btn-small waves-effect waves-light valign" (click)="addBook()">Add new books +</a>
     </div>
   </form>
 </div>
@@ -31,40 +31,25 @@
   <tr>
     <th data-field="id">#</th>
     <th data-field="name">Book</th>
+    <th data-field="isbn">ISBN</th>
     <th data-field="author">Author</th>
     <th data-field="publisher">Publisher</th>
     <th data-field="callNum">Call Number</th>
-    <th data-field="status">Status</th>
-    <th data-field="oper" class="right-align">Operation</th>
+    <th data-field="oper" class="right-align"></th>
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>1</td>
-    <td>It's Django</td>
-    <td>Gavin Lee</td>
-    <td>NCTU</td>
-    <td>8.8.8.8</td>
-    <td>Occupied</td>
-    <td class="right-align"><a class="btn green">Edit</a> <a class="btn red waves-effect waves-light darken-1">Delete</a></td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>It's Django</td>
-    <td>Gavin Lee</td>
-    <td>NCTU</td>
-    <td>8.8.8.8</td>
-    <td>Occupied</td>
-    <td class="right-align"><a class="btn green">Edit</a> <a class="btn red waves-effect waves-light darken-1">Delete</a></td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>It's Django</td>
-    <td>Gavin Lee</td>
-    <td>NCTU</td>
-    <td>8.8.8.8</td>
-    <td>Occupied</td>
-    <td class="right-align"><a class="btn green">Edit</a> <a class="btn red waves-effect waves-light darken-1">Delete</a></td>
+  <tr *ngFor="let book of books; let i = index;">
+    <td>{{ i+1 }}</td>
+    <td>{{ book.title}}</td>
+    <td>{{ book.ISBN }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.publisher }}</td>
+    <td>{{ book.call_number }}</td>
+    <td class="right-align">
+      <a class="btn waves-effect green">Edit</a>
+      <a class="btn waves-effect waves-light red darken-1" (click)="delete(book.id)">Delete</a>
+    </td>
   </tr>
   </tbody>
 </table>

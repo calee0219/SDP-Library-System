@@ -83,6 +83,36 @@ export class HttpService {
       .catch(HttpService.handleError);
   }
 
+  getAllBooks(page: any) {
+    const body = JSON.stringify(page);
+    const token: string = localStorage.getItem('token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT '+ token);
+    return this.http.get(this.httpURL+'api/books/', { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  deleteBook(bookId: any) {
+    const token: string = localStorage.getItem('token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT '+ token);
+    return this.http.delete(this.httpURL+'api/books/'+bookId+'/', { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  addBook(bookInfo: any) {
+    const body = JSON.stringify(bookInfo);
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post(this.httpURL+'api/books/', body, { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
   private static handleError (error: Response) {
     return Observable.throw(error.json().error || 'Server error');
   }
