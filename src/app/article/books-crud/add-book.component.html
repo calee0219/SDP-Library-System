@@ -1,6 +1,6 @@
 <div class="row">
   <form class="col s8 offset-s2 m6 offset-m3 l6 offset-l3"
-        (ngSubmit)="onSubmit(title.value,isbn.value,author.value,publishor.value,cNumber.value)"
+        (ngSubmit)="onSubmit(title.value,isbn.value,author.value,publisher.value,cNumber.value)"
         #up="ngForm">
     <div class="row">
       <div class="input-field col s12">
@@ -43,15 +43,15 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="publishor"
+        <input id="publisher"
                type="text"
                class="validate"
                ngModel
-               name="publishor"
+               name="publisher"
                required
-               #publishor/>
-        <label for="publishor">Publishor</label>
-        <div class="error" *ngIf="error">{{ error.publishor }}</div>
+               #publisher/>
+        <label for="publisher">Publisher</label>
+        <div class="error" *ngIf="error">{{ error.publisher }}</div>
       </div>
     </div>
     <div class="row">

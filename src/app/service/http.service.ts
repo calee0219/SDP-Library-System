@@ -107,7 +107,9 @@ export class HttpService {
   addBook(bookInfo: any) {
     const body = JSON.stringify(bookInfo);
     const headers = new Headers();
+    const token: string = localStorage.getItem('token');
     headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT '+ token);
     return this.http.post(this.httpURL+'api/books/', body, { headers: headers })
       .map((data: Response) => data.json())
       .catch(HttpService.handleError);
