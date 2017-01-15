@@ -1,24 +1,52 @@
 <p><span>User: </span><span>{{me}}</span></p>
-<div class="row">
+<div class="row" *ngIf="me && myInfo.is_staff">
   <form class="col s12"
-        (ngSubmit)="onSubmit(bookId.value)">
+        (ngSubmit)="onSubmitAdm(bookId.value,userId.value)">
     <div class="row">
-      <div class="input-field col s6" *ngIf="me && myInfo.is_staff">
+      <div class="input-field col s6">
         <input id="userId"
                type="text"
                class="validate"
                ngModel
                name="userId"
+               required
                #userId/>
         <label for="userId">User Account</label>
         <div class="error" *ngIf="userError">{{ userError.username }}</div>
       </div>
+      <div class="input-field col s6">
+        <input id="bookIdAdm"
+               type="text"
+               class="validate"
+               ngModel
+               name="bookIdAdm"
+               required
+               #bookId/>
+        <label for="bookIdAdm">Book Bar Code</label>
+        <div class="error" *ngIf="bookError">{{ bookError.bar_code[0] }}</div>
+        <div class="error" *ngIf="bookError">{{ bookError.error }}</div>
+      </div>
+    </div>
+    <div>
+      <button type="submit"
+              class="btn waves-effect waves-light light-blue"
+              name="action">borrow
+        <i class="material-icons right">exit_to_app</i>
+      </button>
+    </div>
+  </form>
+</div>
+<div class="row" *ngIf="me && !myInfo.is_staff">
+  <form class="col s12"
+        (ngSubmit)="onSubmit(bookId.value)">
+    <div class="row">
       <div class="input-field col s6">
         <input id="bookId"
                type="text"
                class="validate"
                ngModel
                name="bookId"
+               required
                #bookId/>
         <label for="bookId">Book Bar Code</label>
         <div class="error" *ngIf="bookError">{{ bookError.bar_code[0] }}</div>
@@ -26,8 +54,7 @@
       </div>
     </div>
     <div>
-      <button id="find"
-              type="submit"
+      <button type="submit"
               class="btn waves-effect waves-light light-blue"
               name="action">borrow
         <i class="material-icons right">exit_to_app</i>

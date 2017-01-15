@@ -25,15 +25,15 @@
 
 <table class="responsive-table stripped">
   <thead>
-  <tr>
-    <td>Book Name</td>
-    <td>ISBN</td>
-    <td>Author</td>
-    <td>Publisher</td>
-    <td>Call Number</td>
-    <td>Bar Code</td>
-    <td>Status</td>
-  </tr>
+    <tr>
+      <th>Book Name</th>
+      <th>ISBN</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Call Number</th>
+      <th>Bar Code</th>
+      <th>Status</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -71,9 +71,7 @@
     <td>{{ book.author }}</td>
     <td>{{ book.publisher }}</td>
     <td>{{ book.call_number }}</td>
-    <td>
-      <a class="btn waves-effect" [routerLink]="['/book-info/'+book.id]">Detail</a>
-    </td>
+    <td><a class="btn waves-effect" [routerLink]="['/book-info/'+book.id]">Detail</a></td>
   </tr>
   </tbody>
 </table>

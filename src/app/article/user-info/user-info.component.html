@@ -55,3 +55,29 @@
     </tr>
   </tbody>
 </table>
+<br/><br/>
+<hr/>
+<table class="responsive-table stripped">
+  <thead>
+  <tr>
+    <th data-field="id">#</th>
+    <th data-field="name">Book Name</th>
+    <th data-field="isbn">ISBN</th>
+    <th data-field="barCode">Bar Code</th>
+    <th data-field="bor_day">Borrow Day</th>
+    <th data-field="due_day">Due Day</th>
+    <th data-field="oper" class="right-align"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books; let i = index;">
+    <td>{{i+1}}</td>
+    <td *ngIf="bookInfo[i]">{{ bookInfo[i].title }}</td>
+    <td *ngIf="bookInfo[i]">{{ bookInfo[i].ISBN }}</td>
+    <td>{{ book.bar_code }}</td>
+    <td>{{ book.borrowed_time }}</td>
+    <td>{{ book.due_time }}</td>
+    <td *ngIf="bookInfo[i]"><a class="btn waves-effect" [routerLink]="['/book-info/'+bookInfo[i].id]">Detail</a></td>
+  </tr>
+  </tbody>
+</table>

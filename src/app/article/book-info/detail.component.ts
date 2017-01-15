@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from "@angular/router";
+import { Location } from '@angular/common';
 import { Response } from "@angular/http";
 import 'rxjs/add/operator/switchMap';
 
@@ -22,7 +23,7 @@ export class DetailComponent implements OnInit {
   barCode: any = "";
   barCodes: any = "";
 
-  constructor(private route: ActivatedRoute,private router: Router, private httpService: HttpService) { }
+  constructor(private route: ActivatedRoute,private router: Router, private httpService: HttpService, private location: Location) { }
 
   ngOnInit() {
     this.route.params
@@ -34,7 +35,7 @@ export class DetailComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/book-info']);
+    this.location.back();
   }
 
 }

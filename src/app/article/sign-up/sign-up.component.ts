@@ -48,7 +48,7 @@ export class SignUpComponent implements OnInit {
           myarr.push(data[key]);
         }
         this.token = myarr[0];
-        this.router.navigate(['/verify']);
+        this.router.navigate(['/signIn']);
       },
       (error: Response) => {
         this.error = "";

@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
 export class HttpService {
   token: Headers;
   httpURL = 'http://localhost:8000/';
+  //httpURL = 'http://lib-back.twleo.com/';
 
   constructor(private http: Http) { }
 
@@ -37,7 +38,6 @@ export class HttpService {
   }
 
   userDetail(user: any) {
-    console.log(user);
     const token: string = localStorage.getItem('token');
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -153,6 +153,16 @@ export class HttpService {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Jwt ' + token);
     return this.http.patch(this.httpURL+'api/users/'+userAc+'/', body, { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  leftBooks(user: any) {
+    const token: string = localStorage.getItem('token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT '+ token);
+    return this.http.get(this.httpURL+'api/borrowinfos/?username='+user, { headers: headers })
       .map((data: Response) => data.json())
       .catch(HttpService.handleError);
   }

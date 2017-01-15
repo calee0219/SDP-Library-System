@@ -48,6 +48,32 @@ export class CheckOutComponent implements OnInit, DoCheck {
     ); console.log(this.bookError);
   }
 
+  onSubmitAdm(barCode: string, user: string) {
+    this.borrowInfo = "";
+    this.bookError = "";
+    this.bookName = "";
+    const today = new Date();
+    const dueDay = (today.getMonth() == 11) ? new Date(today.getFullYear() + 1, 0, 1) : new Date(today.getFullYear(), today.getMonth() + 1, 1);
+    this.httpService.borrow({
+      username: user,
+      bar_code: barCode,
+      borrowed_time: today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
+      due_time: dueDay.getFullYear()+'-'+(dueDay.getMonth()+1)+'-'+dueDay.getDate()
+    }).subscribe(
+      ((data: Response) => this.borrowInfo = data),
+      ((error: Response) => this.bookError = error)
+    );
+    this.httpService.getBookId(barCode).subscribe(
+      ((data: Response) => {
+        const bookId: any = data;
+        this.httpService.bookInfoGet(bookId.book).subscribe(
+          ((data: Response) => this.bookName = data)
+        );
+      }),
+      ((error: Response) => this.bookError = error)
+    ); console.log(this.bookError);
+  }
+
   ngOnInit() {
     this.httpService.userDetail(localStorage.getItem('me'))
       .subscribe(
