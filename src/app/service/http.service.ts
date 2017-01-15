@@ -168,6 +168,6 @@ export class HttpService {
   }
 
   private static handleError (error: Response) {
-    return Observable.throw(error.json().error || 'Server error');
+    return Observable.throw(error.json() || 'Server error');
   }
 }

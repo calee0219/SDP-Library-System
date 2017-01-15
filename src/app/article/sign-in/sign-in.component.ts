@@ -36,8 +36,7 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['/user-info']);
       },
       (error: Response) => {
-        this.error = error[0];
-        console.log(this.error);
+        this.error = (<any>error).errors;
       }
     );
   }

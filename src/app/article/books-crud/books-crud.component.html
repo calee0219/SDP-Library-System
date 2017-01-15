@@ -6,7 +6,7 @@
       <div class="col s12 m12 l12 row valign-wrapper">
         <div class="input-field col s8">
           <input id="barCode" type="text" class="validate" #bbr>
-          <label for="barCode" data-error="wrong" data-success="right">Bar Code</label>
+          <label for="barCode" data-error="wrong" data-success="bar code not found">Bar Code</label>
         </div>
         <div class="col s4">
           <button id="submit"
@@ -17,6 +17,7 @@
             <i class="material-icons right">search</i>
           </button>
         </div>
+        <p class="error" *ngIf="error">{{error}}</p>
       </div>
     </div>
   </form>

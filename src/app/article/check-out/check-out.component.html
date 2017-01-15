@@ -12,6 +12,7 @@
                required
                #userId/>
         <label for="userId">User Account</label>
+        <div class="error" *ngIf="bookError">{{ bookError.username }}</div>
         <div class="error" *ngIf="userError">{{ userError.username }}</div>
       </div>
       <div class="input-field col s6">
@@ -36,6 +37,7 @@
     </div>
   </form>
 </div>
+
 <div class="row" *ngIf="me && !myInfo.is_staff">
   <form class="col s12"
         (ngSubmit)="onSubmit(bookId.value)">
@@ -62,6 +64,7 @@
     </div>
   </form>
 </div>
+
 <div *ngIf="borrowInfo">
   <table>
     <thead>Land out</thead>
@@ -87,3 +90,4 @@
     </tr>
   </table>
 </div>
+

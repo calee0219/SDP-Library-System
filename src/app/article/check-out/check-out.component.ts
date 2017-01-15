@@ -34,18 +34,21 @@ export class CheckOutComponent implements OnInit, DoCheck {
       borrowed_time: today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
       due_time: dueDay.getFullYear()+'-'+(dueDay.getMonth()+1)+'-'+dueDay.getDate()
     }).subscribe(
-      ((data: Response) => this.borrowInfo = data),
-      ((error: Response) => this.bookError = error)
-    );
-    this.httpService.getBookId(barCode).subscribe(
       ((data: Response) => {
-        const bookId: any = data;
-        this.httpService.bookInfoGet(bookId.book).subscribe(
-          ((data: Response) => this.bookName = data)
-        );
+        this.borrowInfo = data;
+        this.httpService.getBookId(barCode).subscribe(
+          ((data: Response) => {
+            const bookId: any = data;
+            this.httpService.bookInfoGet(bookId.book).subscribe(
+              ((data: Response) => this.bookName = data)
+            );
+          }),
+          ((error: Response) => this.bookError = error)
+        ); console.log(this.bookError);
       }),
       ((error: Response) => this.bookError = error)
-    ); console.log(this.bookError);
+    );
+
   }
 
   onSubmitAdm(barCode: string, user: string) {
@@ -60,18 +63,21 @@ export class CheckOutComponent implements OnInit, DoCheck {
       borrowed_time: today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
       due_time: dueDay.getFullYear()+'-'+(dueDay.getMonth()+1)+'-'+dueDay.getDate()
     }).subscribe(
-      ((data: Response) => this.borrowInfo = data),
-      ((error: Response) => this.bookError = error)
-    );
-    this.httpService.getBookId(barCode).subscribe(
       ((data: Response) => {
-        const bookId: any = data;
-        this.httpService.bookInfoGet(bookId.book).subscribe(
-          ((data: Response) => this.bookName = data)
-        );
+        console.log("succ");
+        this.borrowInfo = data;
+        this.httpService.getBookId(barCode).subscribe(
+          ((data: Response) => {
+            const bookId: any = data;
+            this.httpService.bookInfoGet(bookId.book).subscribe(
+              ((data: Response) => this.bookName = data)
+            );
+          }),
+          ((error: Response) => this.bookError = error)
+        ); console.log(this.bookError);
       }),
       ((error: Response) => this.bookError = error)
-    ); console.log(this.bookError);
+    );
   }
 
   ngOnInit() {

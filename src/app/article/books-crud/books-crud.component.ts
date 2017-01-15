@@ -45,7 +45,8 @@ export class BooksCRUDComponent implements OnInit {
     this.httpService.getBookId(barCode).subscribe(
       (data: Response) => {
         this.httpService.bookInfoGet((<any>data).book).subscribe(
-          (data: Response) => { this.router.navigate(['/books-crud/edit/'+(<any>data).id]); }
+          (data: Response) => { this.router.navigate(['/books-crud/edit/'+(<any>data).id]); },
+          (error: Response) => {this.error = error; console.log(error);}
         );
       }
     );

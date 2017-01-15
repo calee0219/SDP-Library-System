@@ -14,6 +14,7 @@ import { HttpService } from "../../service/http.service";
 })
 export class UsersCRUDComponent implements OnInit {
   users: any = "";
+  error: any = "";
 
   constructor(private httpService: HttpService, private router: Router) { }
 
@@ -36,7 +37,10 @@ export class UsersCRUDComponent implements OnInit {
   }
 
   onSubmit(user: any) {
-    this.router.navigate(['/users-crud/edit/'+user]);
+    this.httpService.userDetail(user).subscribe(
+      (data: Response) => (this.router.navigate(['/users-crud/edit/'+user])),
+      (error: Response) => (this.error = error)
+    );
   }
 
 }
