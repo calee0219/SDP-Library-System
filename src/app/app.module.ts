@@ -21,11 +21,12 @@ import { BooksCRUDComponent } from './article/books-crud/books-crud.component';
 import { EditComponent } from './article/books-crud/edit.component';
 import { AddBookComponent } from './article/books-crud/add-book.component';
 import { UsersCRUDComponent } from './article/users-crud/users-crud.component';
-
-import { HttpService } from './service/http.service';
 import { DetailComponent } from './article/book-info/detail.component';
 import { EditUserComponent } from './article/users-crud/edit-user.component';
 import { AddUserComponent } from './article/users-crud/add-user.component';
+import { UserInfoUpdateComponent } from './article/user-info/user-info-update.component';
+
+import { HttpService } from './service/http.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AddUserComponent } from './article/users-crud/add-user.component';
     UsersCRUDComponent,
     DetailComponent,
     EditUserComponent,
-    AddUserComponent
+    AddUserComponent,
+    UserInfoUpdateComponent
   ],
   imports: [
     BrowserModule,

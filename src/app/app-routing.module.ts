@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomepageComponent } from './article/homepage/homepage.component';
 import { SignInComponent } from './article/sign-in/sign-in.component';
 import { SignUpComponent } from './article/sign-up/sign-up.component';
 import { CheckOutComponent } from './article/check-out/check-out.component';
@@ -16,6 +15,7 @@ import { UsersCRUDComponent } from './article/users-crud/users-crud.component';
 import { DetailComponent } from './article/book-info/detail.component';
 import { EditUserComponent } from './article/users-crud/edit-user.component';
 import { AddUserComponent } from './article/users-crud/add-user.component';
+import { UserInfoUpdateComponent } from './article/user-info/user-info-update.component';
 
 const routes: Routes = [
   { path: '', component: CheckOutComponent },
@@ -32,7 +32,8 @@ const routes: Routes = [
   { path: 'books-crud/edit/:id', component: EditComponent },
   { path: 'users-crud', component: UsersCRUDComponent },
   { path: 'users-crud/edit/:ac', component: EditUserComponent },
-  { path: 'users-crud/add-user', component: AddUserComponent }
+  { path: 'users-crud/add-user', component: AddUserComponent },
+  { path: 'user-info/update', component: UserInfoUpdateComponent }
 ];
 
 @NgModule({

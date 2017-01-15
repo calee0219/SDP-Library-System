@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from "@angular/router";
+import { Router } from "@angular/router";
 import { Response } from "@angular/http";
-import 'rxjs/add/operator/switchMap';
 
-import { HttpService } from "../../service/http.service";
+import {HttpService} from "../../service/http.service";
 
 @Component({
-  selector: 'lib-edit-user',
-  templateUrl: './edit-user.component.html',
+  selector: 'lib-user-info-update',
+  templateUrl: 'user-info-update.component.html',
   styles: []
 })
-export class EditUserComponent implements OnInit {
+export class UserInfoUpdateComponent implements OnInit {
   userInfo: any;
 
-  constructor(private route: ActivatedRoute,private router: Router, private httpService: HttpService) { }
+  constructor(private router: Router, private httpService: HttpService) { }
 
   abort():void {
-    this.router.navigate(['/users-crud']);
+    this.router.navigate(['/user-info']);
   }
 
   onSubmit(title,fName,lName,id,birth,address,email,phone,staff,pw) {
@@ -38,12 +37,9 @@ export class EditUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params
-      .switchMap((params: Params) => this.httpService.userDetail(params['ac']))
-      .subscribe(
-        (data: Response) => (this.userInfo = data),
-        (error: Response) => (console.log(error))
-      );
+    this.httpService.userDetail(localStorage.getItem('me')).subscribe(
+      (data: Response) => (this.userInfo = data)
+    );
   }
 
 }
