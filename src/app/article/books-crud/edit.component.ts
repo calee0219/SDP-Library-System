@@ -29,7 +29,7 @@ export class EditComponent implements OnInit {
       call_number: cNumber,
       bar_codes: []
     }).subscribe(
-      (data: Response) => { console.log(data); this.router.navigate(['/book-crud']) },
+      (data: Response) => { console.log(data); this.router.navigate(['/books-crud']) },
       (error: Response) => (console.log(error))
     );
   }

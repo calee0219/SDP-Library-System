@@ -23,6 +23,7 @@ export class BookInfoComponent implements OnInit {
   error: any = "";
   bookInfo: any = "";
   barCode: any = "";
+  books: any;
 
   constructor(private httpService: HttpService) { }
 
@@ -42,6 +43,10 @@ export class BookInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.httpService.getAllBooks(1).subscribe(
+      (data: Response) => { this.books = data; },
+      (error: Response) => { this.error = error; }
+    );
   }
 
 }

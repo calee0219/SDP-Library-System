@@ -22,9 +22,9 @@ const routes: Routes = [
   { path: 'book-info', component: BookInfoComponent },
   { path: 'user-info', component: UserInfoComponent },
   { path: 'verify', component: VerifyComponent },
-  { path: 'book-crud', component: BooksCRUDComponent },
-  { path: 'book-crud/add-book', component: AddBookComponent },
-  { path: 'book-crud/edit/:id', component: EditComponent }
+  { path: 'books-crud', component: BooksCRUDComponent },
+  { path: 'books-crud/add-book', component: AddBookComponent },
+  { path: 'books-crud/edit/:id', component: EditComponent }
 ];
 
 @NgModule({

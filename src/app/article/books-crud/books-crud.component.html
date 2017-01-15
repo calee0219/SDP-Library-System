@@ -22,7 +22,7 @@
   </form>
   <form class="col s4 right-align">
     <div class="input-field inline valign-wrapper">
-      <a class="btn-small waves-effect waves-light valign" (click)="addBook()">Add new books +</a>
+      <a class="waves-effect valign" (click)="addBook()">Add new books +</a>
     </div>
   </form>
 </div>
@@ -47,7 +47,7 @@
     <td>{{ book.publisher }}</td>
     <td>{{ book.call_number }}</td>
     <td class="right-align">
-      <a class="btn waves-effect green" [routerLink]="['/book-crud/edit/'+book.id]">Edit</a>
+      <a class="btn waves-effect green" [routerLink]="['/books-crud/edit/'+book.id]">Edit</a>
       <a class="btn waves-effect waves-light red darken-1" (click)="delete(book.id)">Delete</a>
     </td>
   </tr>

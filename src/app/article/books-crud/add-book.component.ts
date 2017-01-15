@@ -11,21 +11,37 @@ import { HttpService } from "../../service/http.service";
 })
 export class AddBookComponent implements OnInit {
   error: any;
+  barCodeNum: number[] = [];
 
   constructor(private httpService: HttpService, private router: Router) { }
 
-  onSubmit(title ,isbn ,author ,publishor ,cNumber) {
+  onSubmit(bookInfoForm) {
+    console.log(bookInfoForm);
+  }
+  /*
+  onSubmit(title ,isbn ,author ,publishor ,cNumber, barCode) {
+    console.log(barCode);
+
     this.httpService.addBook({
       title: title,
       ISBN: isbn,
       author: author,
       publisher: publishor,
       call_number: cNumber,
-      bar_codes: []
+      bar_codes: [barCode]
     }).subscribe(
       (data: Response) => { console.log(data); this.router.navigate(['/books-crud']) },
       (error: Response) => { this.error = error; console.log(error) }
     );
+
+  }
+*/
+  addBarCode() {
+    this.barCodeNum.push(1);
+  }
+
+  rmBarCode() {
+    this.barCodeNum.pop();
   }
 
   ngOnInit() {

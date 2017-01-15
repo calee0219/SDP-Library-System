@@ -9,7 +9,7 @@
                ngModel
                name="bookId"
                #bookId/>
-        <label for="bookId">Book Bar Code</label>
+        <label for="bookId">Bar Code</label>
         <div class="error" *ngIf="error">{{ error.detail }}</div>
       </div>
       <br/>
@@ -22,6 +22,7 @@
     </div>
   </form>
 </div>
+
 <table class="responsive-table stripped">
   <thead>
   <tr>
@@ -47,5 +48,32 @@
         <p *ngIf="!barCode.is_borrowed">Vacant</p>
       </td>
     </tr>
+  </tbody>
+</table>
+
+<table class="highlight">
+  <thead>
+  <tr>
+    <th data-field="id">#</th>
+    <th data-field="name">Book</th>
+    <th data-field="isbn">ISBN</th>
+    <th data-field="author">Author</th>
+    <th data-field="publisher">Publisher</th>
+    <th data-field="callNum">Call Number</th>
+    <th data-field="oper" class="right-align"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books; let i = index;">
+    <td>{{ i+1 }}</td>
+    <td>{{ book.title}}</td>
+    <td>{{ book.ISBN }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.publisher }}</td>
+    <td>{{ book.call_number }}</td>
+    <td>
+      <a class="btn waves-effect">Detail</a>
+    </td>
+  </tr>
   </tbody>
 </table>
