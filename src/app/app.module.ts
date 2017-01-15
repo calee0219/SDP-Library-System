@@ -18,10 +18,12 @@ import { CheckInComponent } from './article/check-in/check-in.component';
 import { CheckOutComponent } from './article/check-out/check-out.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
 import { BooksCRUDComponent } from './article/books-crud/books-crud.component';
-
-import { HttpService } from './service/http.service';
 import { EditComponent } from './article/books-crud/edit.component';
 import { AddBookComponent } from './article/books-crud/add-book.component';
+import { UsersCRUDComponent } from './article/users-crud/users-crud.component';
+
+import { HttpService } from './service/http.service';
+import { DetailComponent } from './article/book-info/detail.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { AddBookComponent } from './article/books-crud/add-book.component';
     VerifyComponent,
     BooksCRUDComponent,
     EditComponent,
-    AddBookComponent
+    AddBookComponent,
+    UsersCRUDComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,9 @@ import { UserInfoComponent } from './article/user-info/user-info.component';
 import { VerifyComponent } from './article/sign-up/verify.component';
 import { BooksCRUDComponent } from './article/books-crud/books-crud.component';
 import { AddBookComponent } from './article/books-crud/add-book.component';
-import { EditComponent } from './article/books-crud/edit.component'
+import { EditComponent } from './article/books-crud/edit.component';
+import { UsersCRUDComponent } from './article/users-crud/users-crud.component';
+import { DetailComponent } from './article/book-info/detail.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path: 'verify', component: VerifyComponent },
   { path: 'books-crud', component: BooksCRUDComponent },
   { path: 'books-crud/add-book', component: AddBookComponent },
-  { path: 'books-crud/edit/:id', component: EditComponent }
+  { path: 'books-crud/edit/:id', component: EditComponent },
+  { path: 'users-crud', component: UsersCRUDComponent },
+  { path: 'book-info/:id', component: DetailComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,39 @@
+<table class="responsive-table bordered">
+  <tr>
+    <th>Book Name</th>
+    <td *ngIf="bookInfo">{{ bookInfo.title }}</td>
+  </tr>
+  <tr>
+    <th>ISBN</th>
+    <td *ngIf="bookInfo">{{ bookInfo.ISBN }}</td>
+  </tr>
+  <tr>
+    <th>Author</th>
+    <td *ngIf="bookInfo">{{ bookInfo.author }}</td>
+  </tr>
+  <tr>
+    <th>Publisher</th>
+    <td *ngIf="bookInfo">{{ bookInfo.publisher }}</td>
+  </tr>
+  <tr>
+    <th>Call Number</th>
+    <td *ngIf="bookInfo">{{ bookInfo.call_number }}</td>
+  </tr>
+  <tr>
+    <th class="bc">Bar Code</th>
+    <table class="striped">
+      <tr *ngFor="let barCode of bookInfo.bar_codes">
+        <th>#</th>
+        <td>{{ barCode.bar_code }}</td>
+        <th>Status</th>
+        <td>
+          <p *ngIf="barCode.is_borrowed" class="oc">Occupied</p>
+          <p *ngIf="!barCode.is_borrowed" class="va">Vacant</p>
+        </td>
+      </tr>
+    </table>
+  </tr>
+</table>
+<div class="row">
+  <a class="btn light-blue col offset-l11 offset-m11 offset-s11" (click)="back()">Back -></a>
+</div>

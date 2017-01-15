@@ -7,16 +7,12 @@ import { HttpService } from '../../service/http.service';
   selector: 'lib-book-info',
   templateUrl: './book-info.component.html',
   styles: [`
-    .error {
-      color: red;
-      margin-bottom: 10px;
-    }
-    div.row {
-      margin-bottom: 0;
-    }
-    p {
-      margin: 0 auto;
-    }
+    .error {  color: red; margin-bottom: 10px; }
+    div.row { margin-bottom: 0; }
+    p { margin: 0 auto; }
+    .oc { color: red; }
+    .va { color: green; }
+    table { margin-bottom: 50px; }
   `]
 })
 export class BookInfoComponent implements OnInit {

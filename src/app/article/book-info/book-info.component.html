@@ -30,8 +30,8 @@
     <td>ISBN</td>
     <td>Author</td>
     <td>Publisher</td>
-    <td>Bar Code</td>
     <td>Call Number</td>
+    <td>Bar Code</td>
     <td>Status</td>
   </tr>
   </thead>
@@ -41,16 +41,16 @@
       <td>{{ bookInfo.ISBN }}</td>
       <td>{{ bookInfo.author }}</td>
       <td>{{ bookInfo.publisher }}</td>
-      <td>{{ barCode.bar_code }}</td>
       <td>{{ bookInfo.call_number }}</td>
+      <td>{{ barCode.bar_code }}</td>
       <td *ngIf="barCode">
-        <p *ngIf="barCode.is_borrowed">Occupied</p>
-        <p *ngIf="!barCode.is_borrowed">Vacant</p>
+        <p *ngIf="barCode.is_borrowed" class="oc">Occupied</p>
+        <p *ngIf="!barCode.is_borrowed" class="va">Vacant</p>
       </td>
     </tr>
   </tbody>
 </table>
-
+<hr/>
 <table class="highlight">
   <thead>
   <tr>
@@ -72,7 +72,7 @@
     <td>{{ book.publisher }}</td>
     <td>{{ book.call_number }}</td>
     <td>
-      <a class="btn waves-effect">Detail</a>
+      <a class="btn waves-effect" [routerLink]="['/book-info/'+book.id]">Detail</a>
     </td>
   </tr>
   </tbody>

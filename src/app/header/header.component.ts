@@ -8,6 +8,7 @@ import {Component, OnInit, DoCheck } from '@angular/core';
 export class HeaderComponent implements OnInit, DoCheck {
   login: boolean = false;
   isAdm: boolean = false;
+  name: string;
   error: any;
 
   constructor() { }
@@ -26,5 +27,6 @@ export class HeaderComponent implements OnInit, DoCheck {
   ngDoCheck() {
     this.isAdm = (localStorage.getItem('isStaff')=='true')? true:null;
     this.login = !!localStorage.getItem('token');
+    this.name = localStorage.getItem('me');
   }
 }
