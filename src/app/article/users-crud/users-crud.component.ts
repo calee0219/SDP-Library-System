@@ -35,4 +35,8 @@ export class UsersCRUDComponent implements OnInit {
     this.router.navigate(['/users-crud/add-user']);
   }
 
+  onSubmit(user: any) {
+    this.router.navigate(['/users-crud/edit/'+user]);
+  }
+
 }

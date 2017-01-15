@@ -1,11 +1,11 @@
 <div class="row valign-wrapper">
   <form class="col s8"
-        (ngSubmit)="onSubmit(user.value)"
+        (ngSubmit)="onSubmit(uus.value)"
         #user="ngForm">
     <div class="row">
       <div class="col s12 m12 l12 row valign-wrapper">
         <div class="input-field col s8">
-          <input id="user" type="text" class="validate">
+          <input id="user" type="text" class="validate" #uus>
           <label for="user" data-error="wrong" data-success="right">User Account</label>
         </div>
         <div class="col s4">

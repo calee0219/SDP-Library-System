@@ -1,11 +1,11 @@
 <div class="row valign-wrapper">
   <form class="col s8"
-        (ngSubmit)="onSubmit(barCode.value)"
+        (ngSubmit)="onSubmit(bbr.value)"
         #barCode="ngForm">
     <div class="row">
       <div class="col s12 m12 l12 row valign-wrapper">
         <div class="input-field col s8">
-          <input id="barCode" type="text" class="validate">
+          <input id="barCode" type="text" class="validate" #bbr>
           <label for="barCode" data-error="wrong" data-success="right">Bar Code</label>
         </div>
         <div class="col s4">

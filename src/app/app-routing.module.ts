@@ -18,7 +18,7 @@ import { EditUserComponent } from './article/users-crud/edit-user.component';
 import { AddUserComponent } from './article/users-crud/add-user.component';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent },
+  { path: '', component: CheckOutComponent },
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
   { path: 'check-out', component: CheckOutComponent },

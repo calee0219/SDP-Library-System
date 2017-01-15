@@ -33,7 +33,7 @@ export class SignInComponent implements OnInit {
           myarr.push(data[key]);
         }
         localStorage.setItem('token', myarr[0]);
-        this.router.navigate(['/check-out']);
+        this.router.navigate(['/user-info']);
       },
       (error: Response) => {
         this.error = error[0];
