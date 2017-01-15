@@ -1,0 +1,152 @@
+<div class="row">
+  <form class="col s8 offset-s2 m6 offset-m3 l6 offset-l3"
+        (ngSubmit)="onSubmit(fName.value,lName.value,id.value,birth.value,address.value,email.value,phone.value,account.value,passwd.value,staff.value)"
+        #up="ngForm">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="first_name"
+               type="text"
+               class="validate"
+               ngModel
+               name="first_name"
+               required
+               #fName/>
+        <label for="first_name">First Name</label>
+        <div class="error" *ngIf="error">{{ error.first_name }}</div>
+      </div>
+      <div class="input-field col s6">
+        <input id="last_name"
+               type="text"
+               class="validate"
+               ngModel
+               name="last_name"
+               required
+               #lName/>
+        <label for="last_name">Last Name</label>
+        <div class="error" *ngIf="error">{{ error.last_name }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="id_card"
+               type="number"
+               class="validate"
+               ngModel
+               name="id_card"
+               required
+               #id/>
+        <label for="id_card">ID Card number</label>
+        <div class="error" *ngIf="error">{{ error.student_id }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="2016-02-19"
+               id="birth"
+               type="date"
+               class="datepicker"
+               ngModel
+               name="birth"
+               required
+               #birth/>
+        <label class="active" for="birth">Birthday</label>
+        <div class="error" *ngIf="error">{{ error.birthday }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="address"
+               type="text"
+               class="validate"
+               ngModel
+               name="address"
+               required
+               #address/>
+        <label for="address">Address</label>
+        <div class="error" *ngIf="error">{{ error.address }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email"
+               type="email"
+               class="validate"
+               ngModel
+               name="email"
+               required
+               #email/>
+        <label for="email">Email</label>
+        <div class="error" *ngIf="error">{{ error.email }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="phone"
+               type="tel"
+               class="validate"
+               ngModel
+               name="phone"
+               required
+               #phone/>
+        <label for="phone">Phone number</label>
+        <div class="error" *ngIf="error">{{ error.phone_number }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="account"
+               type="text"
+               class="validate"
+               ngModel
+               name="account"
+               required
+               #account/>
+        <label for="account">Account</label>
+        <div class="error" *ngIf="error">{{ error.username }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="password"
+               type="password"
+               class="validate"
+               ngModel
+               name="password"
+               pattern=".{6,}"
+               title="password must more than 6 charactors"
+               required
+               #passwd/>
+        <label for="password">Password</label>
+        <div class="error" *ngIf="error">{{ error.password }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="staff"
+               type="text"
+               class="validate"
+               ngModel
+               name="staff"
+               pattern="true|false"
+               title="true or false"
+               required
+               #staff/>
+        <label for="staff">Staff Status</label>
+      </div>
+    </div>
+    <div class="row">
+      <button id="reset"
+              type="reset"
+              class="btn waves-effect waves-light grey"
+              name="reset">Reset
+      </button>
+      <button id="submit"
+              type="submit"
+              class="btn waves-effect waves-light light-blue"
+              name="submit"
+              [disabled]="!up.valid">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>

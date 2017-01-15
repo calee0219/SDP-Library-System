@@ -1,4 +1,5 @@
-import {Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'lib-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   name: string;
   error: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   logOut() {
     localStorage.removeItem('token');
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit, DoCheck {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('isStaff');
     this.login = false;
+    this.router.navigate(['/']);
   }
 
   ngOnInit() {

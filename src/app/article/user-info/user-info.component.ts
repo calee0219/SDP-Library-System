@@ -7,13 +7,9 @@ import { HttpService } from '../../service/http.service';
   selector: 'lib-user-info',
   templateUrl: './user-info.component.html',
   styles: [`
-    .error {
-      color: red;
-    }
-    div.row {
-      margin-bottom: 0;
-      margin-top: 5px;
-    }
+    .error { color: red; }
+    div.row { margin-bottom: 0; margin-top: 5px; }
+    th { width: 15%; text-align: right; padding-right: 5%; }
   `]
 })
 export class UserInfoComponent implements OnInit, DoCheck {

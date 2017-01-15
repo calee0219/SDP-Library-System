@@ -16,12 +16,11 @@ export class BooksCRUDComponent implements OnInit {
   constructor(private httpService: HttpService, private router: Router) { }
 
   delete(bookId: any) {
-    console.log(bookId);
     this.httpService.deleteBook(bookId).subscribe(
       (data: Response) => {
         console.log(data);
         this.books.pop();
-        this.httpService.getAllBooks(1).subscribe(
+        this.httpService.getAllBooks().subscribe(
           (data: Response) => { this.books = data; },
           (error: Response) => { this.error = error; }
         );
@@ -36,7 +35,7 @@ export class BooksCRUDComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpService.getAllBooks(1).subscribe(
+    this.httpService.getAllBooks().subscribe(
       (data: Response) => { this.books = data; },
       (error: Response) => { this.error = error; }
     );

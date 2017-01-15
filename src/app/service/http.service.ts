@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 @Injectable()
 export class HttpService {
   token: Headers;
-  httpURL = 'http://127.0.0.1:8000/';
+  httpURL = 'http://localhost:8000/';
 
   constructor(private http: Http) { }
 
@@ -37,6 +37,7 @@ export class HttpService {
   }
 
   userDetail(user: any) {
+    console.log(user);
     const token: string = localStorage.getItem('token');
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -83,8 +84,7 @@ export class HttpService {
       .catch(HttpService.handleError);
   }
 
-  getAllBooks(page: any) {
-    const body = JSON.stringify(page);
+  getAllBooks() {
     const token: string = localStorage.getItem('token');
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -122,6 +122,37 @@ export class HttpService {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Jwt ' + token);
     return this.http.patch(this.httpURL+'api/books/'+bookId+'/', body, { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  getAllUsers() {
+    const token: string = localStorage.getItem('token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT '+ token);
+    return this.http.get(this.httpURL+'api/users/', { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  deleteUser(userName: any) {
+    const token: string = localStorage.getItem('token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT '+ token);
+    return this.http.delete(this.httpURL+'api/user/'+userName+'/', { headers: headers })
+      .map((data: Response) => data.json())
+      .catch(HttpService.handleError);
+  }
+
+  patchUserInfo(userAc: any, userInfo: any) {
+    const body = JSON.stringify(userInfo);
+    const headers = new Headers();
+    const token: string = localStorage.getItem('token');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Jwt ' + token);
+    return this.http.patch(this.httpURL+'api/users/'+userAc+'/', body, { headers: headers })
       .map((data: Response) => data.json())
       .catch(HttpService.handleError);
   }

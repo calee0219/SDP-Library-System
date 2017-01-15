@@ -7,9 +7,8 @@ import { HttpService } from '../../service/http.service';
   selector: 'lib-check-out',
   templateUrl: './check-out.component.html',
   styles: [`
-    .error {
-      color: red;
-    }
+    .error { color: red; }
+    th { width: 15%; text-align: right; padding-right: 5%; }
   `]
 })
 export class CheckOutComponent implements OnInit, DoCheck {

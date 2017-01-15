@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { ActivatedRoute, Params, Router }   from '@angular/router';
 import { Response } from "@angular/http";
 import 'rxjs/add/operator/switchMap';
@@ -14,10 +13,10 @@ import { HttpService } from "../../service/http.service";
 export class EditComponent implements OnInit {
   bookInfo: any;
 
-  constructor(private route: ActivatedRoute,private router: Router, private httpService: HttpService, private location: Location) { }
+  constructor(private route: ActivatedRoute,private router: Router, private httpService: HttpService) { }
 
   abort():void {
-    this.location.back();
+    this.router.navigate(['/books-crud']);
   }
 
   onSubmit(title ,isbn ,author ,publishor ,cNumber) {

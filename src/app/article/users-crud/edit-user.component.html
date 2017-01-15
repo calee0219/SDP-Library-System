@@ -1,0 +1,166 @@
+<div *ngIf="userInfo">
+  <div class="row">
+    <h3 class="col s8 offset-s2 m6 offset-m3 l6 offset-l3">Editing {{userInfo.username}}</h3>
+    <form class="col s8 offset-s2 m6 offset-m3 l6 offset-l3"
+          (ngSubmit)="onSubmit(title.value,fName.value,lName.value,id.value,birth.value,address.value,email.value,phone.value,staff.value,pw.value)"
+          #up="ngForm">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="title"
+                 type="text"
+                 class="validate"
+                 ngModel
+                 name="title"
+                 [(ngModel)]="userInfo.username"
+                 required
+                 #title/>
+          <label for="title" class="active">User</label>
+          <div class="error" *ngIf="error">{{ error.username }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name"
+                 type="text"
+                 class="validate"
+                 ngModel
+                 name="first_name"
+                 [(ngModel)]="userInfo.first_name"
+                 required
+                 #fName/>
+          <label for="first_name" class="active">First Name</label>
+          <div class="error" *ngIf="error">{{ error.first_name }}</div>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name"
+                 type="text"
+                 class="validate"
+                 ngModel
+                 name="last_name"
+                 [(ngModel)]="userInfo.last_name"
+                 required
+                 #lName/>
+          <label for="last_name" class="active">Last Name</label>
+          <div class="error" *ngIf="error">{{ error.last_name }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="id_card"
+                 type="number"
+                 class="validate"
+                 ngModel
+                 name="id_card"
+                 [(ngModel)]="userInfo.student_id"
+                 required
+                 #id/>
+          <label for="id_card" class="active">Student ID number</label>
+          <div class="error" *ngIf="error">{{ error.student_id }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="2016-02-19"
+                 id="birth"
+                 type="date"
+                 class="datepicker"
+                 ngModel
+                 name="birth"
+                 [(ngModel)]="userInfo.birthday"
+                 required
+                 #birth/>
+          <label for="birth" class="active">Birthday</label>
+          <div class="error" *ngIf="error">{{ error.birthday }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="address"
+                 type="text"
+                 class="validate"
+                 ngModel
+                 name="address"
+                 [(ngModel)]="userInfo.address"
+                 required
+                 #address/>
+          <label for="address" class="active">Address</label>
+          <div class="error" *ngIf="error">{{ error.address }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email"
+                 type="email"
+                 class="validate"
+                 ngModel
+                 name="email"
+                 [(ngModel)]="userInfo.email"
+                 required
+                 #email/>
+          <label for="email" class="active">Email</label>
+          <div class="error" *ngIf="error">{{ error.email }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="phone"
+                 type="tel"
+                 class="validate"
+                 ngModel
+                 name="phone"
+                 [(ngModel)]="userInfo.phone_number"
+                 required
+                 #phone/>
+          <label for="phone" class="active">Phone number</label>
+          <div class="error" *ngIf="error">{{ error.phone_number }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="pw"
+                 type="password"
+                 class="validate"
+                 ngModel
+                 name="pw"
+                 [(ngModel)]="userInfo.password"
+                 required
+                 #pw/>
+          <label for="pw" class="active">Password</label>
+          <div class="error" *ngIf="error">{{ error.phone_number }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="staff"
+                 type="text"
+                 class="validate"
+                 ngModel
+                 name="staff"
+                 pattern="true|false"
+                 title="true or false"
+                 [(ngModel)]="userInfo.is_staff"
+                 required
+                 #staff/>
+          <label for="staff" class="active">Is Staff?</label>
+          <div class="error" *ngIf="error">{{ error.phone_number }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <button id="abort"
+                type="button"
+                class="btn waves-effect waves-light grey"
+                (click)="abort()"
+                name="abort">Abort
+        </button>
+        <button id="submit"
+                type="submit"
+                class="btn waves-effect waves-light light-blue"
+                name="submit"
+                [disabled]="!up.valid">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>

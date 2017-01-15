@@ -39,7 +39,7 @@ export class BookInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpService.getAllBooks(1).subscribe(
+    this.httpService.getAllBooks().subscribe(
       (data: Response) => { this.books = data; },
       (error: Response) => { this.error = error; }
     );

@@ -24,6 +24,8 @@ import { UsersCRUDComponent } from './article/users-crud/users-crud.component';
 
 import { HttpService } from './service/http.service';
 import { DetailComponent } from './article/book-info/detail.component';
+import { EditUserComponent } from './article/users-crud/edit-user.component';
+import { AddUserComponent } from './article/users-crud/add-user.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { DetailComponent } from './article/book-info/detail.component';
     EditComponent,
     AddBookComponent,
     UsersCRUDComponent,
-    DetailComponent
+    DetailComponent,
+    EditUserComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

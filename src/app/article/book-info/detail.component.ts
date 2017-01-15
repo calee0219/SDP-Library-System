@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { Response } from "@angular/http";
+import 'rxjs/add/operator/switchMap';
 
 import { HttpService } from "../../service/http.service";
 
@@ -8,7 +9,7 @@ import { HttpService } from "../../service/http.service";
   selector: 'lib-detail',
   templateUrl: './detail.component.html',
   styles: [`
-    th { width: 15%; text-align: right; padding-right: 5%; border-right: 5px; }
+    th { width: 15%; text-align: right; padding-right: 5%; }
     .bc { vertical-align: top; }
     .btn { margin-top: 10px; }
     .oc { color: red; }

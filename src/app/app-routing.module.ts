@@ -14,6 +14,8 @@ import { AddBookComponent } from './article/books-crud/add-book.component';
 import { EditComponent } from './article/books-crud/edit.component';
 import { UsersCRUDComponent } from './article/users-crud/users-crud.component';
 import { DetailComponent } from './article/book-info/detail.component';
+import { EditUserComponent } from './article/users-crud/edit-user.component';
+import { AddUserComponent } from './article/users-crud/add-user.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -22,13 +24,15 @@ const routes: Routes = [
   { path: 'check-out', component: CheckOutComponent },
   { path: 'check-in', component: CheckInComponent },
   { path: 'book-info', component: BookInfoComponent },
+  { path: 'book-info/:id', component: DetailComponent },
   { path: 'user-info', component: UserInfoComponent },
   { path: 'verify', component: VerifyComponent },
   { path: 'books-crud', component: BooksCRUDComponent },
   { path: 'books-crud/add-book', component: AddBookComponent },
   { path: 'books-crud/edit/:id', component: EditComponent },
   { path: 'users-crud', component: UsersCRUDComponent },
-  { path: 'book-info/:id', component: DetailComponent }
+  { path: 'users-crud/edit/:ac', component: EditUserComponent },
+  { path: 'users-crud/add-user', component: AddUserComponent }
 ];
 
 @NgModule({
